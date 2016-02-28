@@ -88,6 +88,7 @@
     silver-searcher
     sysstat
     tree
+    tarsnap
     usbutils
     vagrant
     vimNox
@@ -274,6 +275,25 @@
       longitude = "13.3833";
     };
 
+    tarsnap = {
+      enable = true;
+      archives = {
+        andrea = {
+          period = "hourly";
+          directories = [
+            "/home/andrea/"
+          ];
+          excludes = [
+            "/home/andrea/Downloads/"
+            "/home/andrea/Development/"
+            "/home/andrea/VirtualBox\ VMs/"
+            "/home/andrea/.cache/"
+            "/home/andrea/.WebIde100"
+            "/home/andrea/.config/chromium*"
+          ];
+        };
+      };
+    };
     mbpfan.enable = true;
 
   };
