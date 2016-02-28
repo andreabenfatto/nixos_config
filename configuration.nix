@@ -160,7 +160,10 @@
 
     upower.enable = true;
 
-    locate.enable = true;
+    locate = {
+      enable = true;
+      interval = "hourly";
+    };
 
     # enable keyring to be able to use MysqlWorkbench
     gnome3.gnome-keyring.enable = true;
