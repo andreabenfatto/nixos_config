@@ -63,6 +63,8 @@
   environment.systemPackages = with pkgs; [
     acpi
     autorandr
+    bc
+    calibre
     evince
     pciutils
     awscli
@@ -75,6 +77,7 @@
     emacs
     encfs
     git
+    profile-sync-daemon
     hipchat
     luakit
     htop
@@ -82,6 +85,7 @@
     leiningen
     mupdf
     openvpn
+    pciutils
     python
     python27Packages.locustio
     redshift
@@ -89,10 +93,13 @@
     sysstat
     tree
     tarsnap
+    terminator
     usbutils
     vagrant
     vimNox
+    wpa_supplicant_gui
     wget
+    xcape
     xscreensaver
     xbindkeys
     xbindkeys-config
@@ -203,9 +210,10 @@
           #};
         };
         desktopManagerHandlesLidAndPower = false;
-	#sessionCommands = ''
-        #  /run/current-system/sw/bin/xrandr --output VIRTUAL1 --off --output eDP1 --mode 1280x800 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
-        #'';
+	      sessionCommands = ''
+          ${pkgs.xlibs.xrdb}/bin/xrdb -merge ~/.Xresources &
+          ${pkgs.xcape}/bin/xcape -e "Shift_L=parenleft;Shift_R=parenright" &
+        '';
       };
 
       desktopManager = {
@@ -293,6 +301,7 @@
             "/home/andrea/.cache/"
             "/home/andrea/.WebIde100"
             "/home/andrea/.config/chromium*"
+            "/home/andrea/.config/google-chrome"
           ];
         };
       };
